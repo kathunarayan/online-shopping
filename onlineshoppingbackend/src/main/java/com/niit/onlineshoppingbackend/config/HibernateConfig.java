@@ -13,30 +13,30 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
+ 
 
 
 @Configuration
-@ComponentScan(basePackages={"com.niit.onlineshoppingbackend.dto"})
+@ComponentScan(basePackages={"com.niit.onlineshoppingbackend"})
 @EnableTransactionManagement
 
 public class HibernateConfig {
 
-		private final static String DATABASE_URL="jdbc:h2:tcp://localhost/~/onlineshopping";
+		private final static String DATABASE_URL="jdbc:h2:tcp://localhost/~/online";
 		private final static String DATABASE_DRIVER="org.h2.Driver";
 		private final static String DATABASE_DIALECT="org.hibernate.dialect.H2Dialect";
 		private final static String DATABASE_USERNAME="sa";
-		private final static String DATABASE_PASSWORD="sa";
+		private final static String DATABASE_PASSWORD="";
 
 		//datasource bean will be created
 		@Bean
 		public DataSource getDataSource() {
 			BasicDataSource dataSource = new BasicDataSource();
-			//provinding the db connection info
-			dataSource.setDriverClassName(DATABASE_DRIVER);
-			dataSource.setUrl(DATABASE_URL);
-			dataSource.setUsername(DATABASE_USERNAME);
-			dataSource.setPassword(DATABASE_PASSWORD);
+			//providing the db connection info
+			dataSource.setDriverClassName("org.h2.Driver");
+			dataSource.setUrl("jdbc:h2:tcp://localhost/~/online");
+			dataSource.setUsername("sa");
+			dataSource.setPassword("");
 			return dataSource;
 		}
 		
