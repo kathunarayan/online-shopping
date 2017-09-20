@@ -1,63 +1,76 @@
 package com.niit.onlineshoppingbackend.config;
 
+
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
- 
+import com.niit.onlineshoppingbackend.dto.Cart;
+import com.niit.onlineshoppingbackend.dto.Category;
+import com.niit.onlineshoppingbackend.dto.Product;
+import com.niit.onlineshoppingbackend.dto.Supplier;
 
 
 @Configuration
-@ComponentScan(basePackages={"com.niit.onlineshoppingbackend"})
+@ComponentScan("com.niit.*")
 @EnableTransactionManagement
-
 public class HibernateConfig {
 
-		private final static String DATABASE_URL="jdbc:h2:tcp://localhost/~/online";
-		private final static String DATABASE_DRIVER="org.h2.Driver";
-		private final static String DATABASE_DIALECT="org.hibernate.dialect.H2Dialect";
-		private final static String DATABASE_USERNAME="sa";
-		private final static String DATABASE_PASSWORD="";
+	@Autowired
+	@Bean(name = "dataSource")
+	public DataSource getH2DataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("org.h2.Driver");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/online");
 
-		//datasource bean will be created
-		@Bean
-		public DataSource getDataSource() {
-			BasicDataSource dataSource = new BasicDataSource();
-			//providing the db connection info
-			dataSource.setDriverClassName("org.h2.Driver");
-			dataSource.setUrl("jdbc:h2:tcp://localhost/~/online");
-			dataSource.setUsername("sa");
-			dataSource.setPassword("");
-			return dataSource;
-		}
+		dataSource.setUsername("sa");
+		dataSource.setPassword("");
+
+		return dataSource;
+	}
+
+	private Properties getHibernateProperties() {
+		Properties properties = new Properties();
+		properties.put("hibernate.show_sql", "true");
+		properties.put("hibernate.hbm2ddl.auto", "update");
+		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+		properties.put("hibernate.format_sql", "true");
+
+		return properties;
+	}
+	@Autowired
+	@Bean(name = "sessionFactory")
+	public SessionFactory getSessionFactory(DataSource dataSource) {
+		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		
-		//sessionfactory bean will be created
-		@Bean
-		public SessionFactory getsessionFactory() {
-			LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(getDataSource());
-			Properties hibernateProperties = new Properties();
-			hibernateProperties.setProperty("hibernate.dialect", DATABASE_DIALECT);
-			hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
-			hibernateProperties.setProperty("hibernate.show_sql", "true");
-			builder.addProperties(hibernateProperties);
-			builder.scanPackages("com.niit.onlineshoppingbackend.dto");
-			return builder.buildSessionFactory();
-		}
+		sessionBuilder.addProperties(getHibernateProperties());
+		sessionBuilder.addAnnotatedClass(Category.class);
+		sessionBuilder.addAnnotatedClass(Product.class);
+		sessionBuilder.addAnnotatedClass(Supplier.class);
+		sessionBuilder.addAnnotatedClass(Cart.class);
+		
+		return sessionBuilder.buildSessionFactory();
+	}
+	@Autowired
+	@Bean(name = "transactionManager")
+	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
+		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
+		return transactionManager;
 
-		//transaction manager bean created
-		@Bean
-		public HibernateTransactionManager hibTransManagement() {
-			return new HibernateTransactionManager(getsessionFactory());
-		}
-
-
+	}
+	/*@Autowired(required = true)
+	@Bean(name = "CategoryDao")
+	public CategoryDao getCategoryDao(SessionFactory sessionFactory) {
+		return new CategoryDaoImpl(sessionFactory);
+	}*/
 }

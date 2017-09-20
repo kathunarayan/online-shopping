@@ -5,8 +5,17 @@ import java.util.List;
 import com.niit.onlineshoppingbackend.dto.Category;
 
 public interface CategoryDao {
-	
-	boolean add(Category category);
-List<Category> list();
-Category get(int id);
+
+	public List<Category> list();
+
+	public Category get(int id);
+
+	public void saveOrUpdate(Category category);
+
+	public void delete(String id);
+
+	public void editCategory(Category category);
+
+	public List<Category> search(String keyWord);
+
 }
