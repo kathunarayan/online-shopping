@@ -13,13 +13,14 @@
 		<spring.version>4.3.8.RELEASE</spring.version>
 	</properties>
 	<dependencies>
+
 		<!-- link back end -->
 		<!-- <dependency>
 			<groupId>com.niit</groupId>
 			<artifactId>onlineshoppingbackend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency> -->
-		<!-- JAVA EE API -->
+		</dependency>
+		 --><!-- JAVA EE API -->
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -42,7 +43,6 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

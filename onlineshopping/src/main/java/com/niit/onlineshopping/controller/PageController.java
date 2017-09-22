@@ -21,7 +21,21 @@ public class PageController {
 		//passing the list of categories
 		//mv.addObject("categories", categoryDao.list());
 		mv.addObject("title", "Home");
-		mv.addObject("userClicksHome",true);
+		//mv.addObject("userClicksHome",true);
+		return mv;
+	}
+	@RequestMapping(value="/Register")
+	public ModelAndView register(){
+		ModelAndView mv=new ModelAndView("Register");
+		mv.addObject("title", "Sign Up");
+		//mv.addObject("userClicksRegister",true);
+		return mv;
+	}
+	@RequestMapping(value="/Login")
+	public ModelAndView login(){
+		ModelAndView mv=new ModelAndView("Login");
+		mv.addObject("title", "Login");
+		//mv.addObject("userClicksRegister",true);
 		return mv;
 	}
 	/*@RequestMapping(value="/about")
