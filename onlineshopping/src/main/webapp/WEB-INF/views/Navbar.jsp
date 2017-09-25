@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>
+
 <div class="logo">
 		<img src="resources/images/logo.jpg"
 			align="middle" />
@@ -23,10 +26,12 @@
 				<li><a href="#">Kids</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/Register"><span class="glyphicon glyphicon-user"></span>
+			<c:url value="/Register" var="reg" ></c:url>
+				<li><a href="${reg}"><span class="glyphicon glyphicon-user"></span>
 						Sign Up</a></li>
 				<li><a href="/Login"><span class="glyphicon glyphicon-log-in"></span>
 						Sign In</a></li>
+			
 			</ul>
 		</div>
 	</div>

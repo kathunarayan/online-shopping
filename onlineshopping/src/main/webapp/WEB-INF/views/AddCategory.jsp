@@ -11,24 +11,28 @@
 		<div class="col md-4 myform" style="margin: 20px auto;">
 			<div class="myform_head">
 
-				<h3>Sign In Here</h3>
+				<h3>Add Category</h3>
 			</div>
 
-			<!-- Form login -->
+			<!-- Form register -->
 			<form>
-				
+				<div class="form-group">
+					<label for="CategoryName">Category Name</label> <input type="text"
+						class="newtext form-control" id="CategoryName"
+						placeholder="Category name">
+				</div>
 
 				<div class="form-group">
-					<label for="LogInputUname1">User Name</label> <input
-						type="text" class="newtext form-control" id="LogInputUname1"
-						aria-describedby="emailHelp" placeholder="User name">
+					<label for="CategoryDesc">Category Description</label> <input
+						type="text" class="newtext form-control" id="CategoryDesc"
+						placeholder="Category Description">
 				</div>
+
 				<div class="form-group">
-					<label for="LogInputPassword1">Password</label> <input
-						type="password" class="newtext form-control"
-						id="LogInputPassword1" placeholder="Password">
+					<label for="CategoryImage">Upload Image</label> <input type="file"
+						class="form-control-file" id="CategoryImage">
 				</div>
-				
+
 				<button type="submit" class=" btn-green btn btn-primary">Submit</button>
 			</form>
 		</div>

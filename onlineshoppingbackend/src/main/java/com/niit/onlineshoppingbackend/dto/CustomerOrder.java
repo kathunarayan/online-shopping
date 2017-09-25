@@ -26,7 +26,6 @@ public class CustomerOrder {
 	@JoinColumn(name="bid")
 	private BillingAddress billingaddress;
 	/*@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="sid")
 	private ShippingAddress shippingaddress;
 	*/public int getId() {
 		return id;

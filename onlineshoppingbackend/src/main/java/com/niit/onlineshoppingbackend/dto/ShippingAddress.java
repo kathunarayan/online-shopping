@@ -2,6 +2,7 @@ package com.niit.onlineshoppingbackend.dto;
 
 import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 public class ShippingAddress {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@NotEmpty
 	private String doorno;
@@ -24,10 +25,10 @@ public class ShippingAddress {
 	private String country;
 	@NotEmpty
 	private String zipcode;
-	/*@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="customerid")
 	private Customer customer;
-*/
+
 	public int getId() {
 		return id;
 	}

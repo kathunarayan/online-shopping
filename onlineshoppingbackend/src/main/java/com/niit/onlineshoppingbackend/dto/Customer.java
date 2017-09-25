@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -24,6 +25,7 @@ public class Customer {
 //	@NotEmpty
 	private String lname;
 	@Column(name = "emailid", unique = true, nullable = false, columnDefinition = "VARCHAR(35)")
+	@Email
 	private String email;
 	@NotEmpty
 	@Size(min = 10, max = 10)
@@ -36,9 +38,10 @@ public class Customer {
 	@JoinColumn(name="billAdId")
 	@Valid
 	private BillingAddress billingAddress;
-	/*@OneToMany(mappedBy="customer",cascade = CascadeType.ALL)
-	private List<ShippingAddress> shippingaddress;
-	*/@OneToOne(cascade = CascadeType.ALL)
+	/*OneToMany(mappedBy="customer",cascade = CascadeType.ALL)
+	private List<ShippingAddress> shippingaddress;*/
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="cartId")
 	private Cart cart;
 	public int getId() {

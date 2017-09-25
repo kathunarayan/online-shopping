@@ -18,22 +18,62 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-	
-	<!-- MDB css and script -->
 
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
+
+
+
 <style>
+.myform_head {
+	background-color: #9d9d9d;
+	color: #fff; border-color : #310b2b;
+	padding: 1rem;
+	border-color: #310b2b;
+}
+
+.myform {
+	width: 600px;
+	important margin: 20px auto;
+	padding-bottom: 10px;
+	important -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px
+		0 rgba(0, 0, 0, .12);
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0
+		rgba(0, 0, 0, .12);
+}
+
+.btn-green:hover {
+	background-color: #76FF03;
+	border-color: #310b2b
+}
+
+.btn-green {
+	background-color: #64DD17;
+	border-color: #310b2b;
+	padding: .85rem 2.13rem;
+	border-radius: 2px;
+	border: 0;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0
+		rgba(0, 0, 0, .12);
+}
+
+form {
+	margin: 60px;
+}
+
+.newtext {
+	border: none;
+	border-bottom: 1px solid #9e9e9e;
+	border-radius: 0;
+	outline: none;
+	height: 3rem;
+	box-shadow: none;
+}
+
 .navbar {
 	border-radius: 0px;
 }
 
 .logo {
 	width: 500px;
-	
 	margin-left: auto;
 	margin-right: auto;
 	padding: auto;
