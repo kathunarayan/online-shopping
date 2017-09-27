@@ -15,16 +15,8 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.niit.onlineshoppingbackend.dto.BillingAddress;
-import com.niit.onlineshoppingbackend.dto.Cart;
-import com.niit.onlineshoppingbackend.dto.CartItem;
 import com.niit.onlineshoppingbackend.dto.Category;
-import com.niit.onlineshoppingbackend.dto.Customer;
-import com.niit.onlineshoppingbackend.dto.CustomerOrder;
-import com.niit.onlineshoppingbackend.dto.Product;
-import com.niit.onlineshoppingbackend.dto.ShippingAddress;
-import com.niit.onlineshoppingbackend.dto.Supplier;
-import com.niit.onlineshoppingbackend.dto.User;
+
 
 
 @Configuration
@@ -61,16 +53,16 @@ public class HibernateConfig {
 		
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(Category.class);
-		sessionBuilder.addAnnotatedClass(Product.class);
+		/*sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Cart.class);
 		sessionBuilder.addAnnotatedClass(CartItem.class);
 		sessionBuilder.addAnnotatedClass(Customer.class);
 		sessionBuilder.addAnnotatedClass(BillingAddress.class);
 		sessionBuilder.addAnnotatedClass(User.class);
-
-		sessionBuilder.addAnnotatedClass(CustomerOrder.class);
-		sessionBuilder.addAnnotatedClass(ShippingAddress.class);
+		sessionBuilder.addAnnotatedClass(Authorities.class);
+		sessionBuilder.addAnnotatedClass(CustomerOrder.class);*/
+		//sessionBuilder.addAnnotatedClass(ShippingAddress.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 	@Autowired
@@ -84,5 +76,11 @@ public class HibernateConfig {
 	@Bean(name = "CategoryDao")
 	public CategoryDao getCategoryDao(SessionFactory sessionFactory) {
 		return new CategoryDaoImpl(sessionFactory);
+	}*/
+	
+	/*@Autowired(required = true)
+	@Bean(name = "CustomerDao")
+	public CustomerDao getCustomerDao(SessionFactory sessionFactory) {
+		return new CustomerDaoImpl(sessionFactory);
 	}*/
 }

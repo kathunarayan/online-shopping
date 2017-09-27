@@ -2,7 +2,7 @@
 <%@include file="/WEB-INF/views/Navbar.jsp"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
 <div class="container">
@@ -15,26 +15,31 @@
 			</div>
 
 			<!-- Form register -->
-			<form>
+			<c:url value="/admin/savecategory" var="action"></c:url>
+			<form:form action="${action}" method="post" name="form"
+				modelAttribute="category">
+
+			
 				<div class="form-group">
-					<label for="CategoryName">Category Name</label> <input type="text"
-						class="newtext form-control" id="CategoryName"
-						placeholder="Category name">
+					<label>Category Name</label>
+					<form:input path="cat_name" class="newtext form-control"
+						placeholder="Category name" />
+						<form:errors path="cat_name" cssStyle="color:red"></form:errors>
 				</div>
 
 				<div class="form-group">
-					<label for="CategoryDesc">Category Description</label> <input
-						type="text" class="newtext form-control" id="CategoryDesc"
-						placeholder="Category Description">
+					<label>Category Description</label> <form:input path="description"
+					 class="newtext form-control" id="CategoryDesc"
+						placeholder="Category Description" />
 				</div>
 
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label for="CategoryImage">Upload Image</label> <input type="file"
 						class="form-control-file" id="CategoryImage">
-				</div>
+				</div> -->
 
 				<button type="submit" class=" btn-green btn btn-primary">Submit</button>
-			</form>
+			</form:form>
 		</div>
 	</div>
 </div>

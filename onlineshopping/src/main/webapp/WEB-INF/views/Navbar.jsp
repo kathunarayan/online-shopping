@@ -20,8 +20,10 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
+			
 				<li class="active"><a href="/Home">Home</a></li>
-				<li><a href="#">Men</a></li>
+				<c:url value="/admin/category/getcategoryform" var="cat" ></c:url>
+				<li><a href="${cat}">Category</a></li>
 				<li><a href="#">Women</a></li>
 				<li><a href="#">Kids</a></li>
 			</ul>

@@ -19,11 +19,11 @@ public class Category {
 	@GeneratedValue
 	private int id;
 
-	private String name;
+	private String cat_name;
 
 	private String description;
-	@Column(name = "image_url")
-	private String imageUrl;
+	/*@Column(name = "image_url")
+	private String imageUrl;*/
 	@Column(name = "is_active")
 	private boolean active = true;
 
@@ -35,12 +35,14 @@ public class Category {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	
+
+	public String getCat_name() {
+		return cat_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCat_name(String cat_name) {
+		this.cat_name = cat_name;
 	}
 
 	public String getDescription() {
@@ -51,13 +53,13 @@ public class Category {
 		this.description = description;
 	}
 
-	public String getImageUrl() {
+	/*public String getImageUrl() {
 		return imageUrl;
 	}
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
-	}
+	}*/
 
 	public boolean isActive() {
 		return active;
