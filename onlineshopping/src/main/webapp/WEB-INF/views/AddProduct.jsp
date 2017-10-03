@@ -2,7 +2,7 @@
 <%@include file="/WEB-INF/views/Navbar.jsp"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%> --%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
 <div class="container">
@@ -15,46 +15,71 @@
 			</div>
 
 			<!-- Form register -->
-			<form>
+			<c:url value="/admin/saveproduct" var="action"></c:url>
+			<form:form action="${action}" method="post" name="form"
+				modelAttribute="product" enctype="multipart/form-data">
+
+
 				<div class="form-group">
-					<label for="ProductName">Product Name</label> <input type="text"
-						class="newtext form-control" id="ProductName"
-						placeholder="Product name">
+					<label>Product Name</label>
+					<form:input path="productName" class="newtext form-control"
+						placeholder="Product name" />
+					<form:errors path="productName" cssStyle="color:red"></form:errors>
 				</div>
 
 				<div class="form-group">
-					<label for="ProductPrice">Product Price</label> <input
-						type="number" class="newtext form-control" id="ProductPrice"
-						placeholder="Product price">
+					<label>Product Description</label>
+					<form:input path="description" class="newtext form-control"
+						placeholder="Product Description" />
+					<form:errors path="description" cssStyle="color:red"></form:errors>
 				</div>
+
+
 				<div class="form-group">
-					<label for="ProductQuantity">Product Quantity</label> <input
-						type="number" class="newtext form-control" id="ProductQuantity"
-						placeholder="Product Quantity">
+					<label>Product Price</label>
+					<form:input path="price" class="newtext form-control"
+						placeholder="Product Price" />
+					<form:errors path="price" cssStyle="color:red"></form:errors>
 				</div>
 
 				<div class="form-group">
-					<label for="ProductDesc">Product Description</label> <input
-						type="text" class="newtext form-control" id="ProductDesc"
-						placeholder="Product Description">
+					<label>Product Quantity</label>
+					<form:input path="quantity" class="newtext form-control"
+						placeholder="Product Quantity" />
+					<form:errors path="quantity" cssStyle="color:red"></form:errors>
 				</div>
+
+				<%-- <div class="form-group">
+					<label>Category Description</label> <form:input path="description"
+					 class="newtext form-control" id="CategoryDesc"
+						placeholder="Category Description" />
+				</div> --%>
 				<div class="form-group">
-					<label for="ProductCategory">Select Category</label> <select
+					<label>Select Category</label> 
+					<form:select path="category" 
 						class="newtext form-control" id="ProductCategory">
-						<option>1</option>
-						<option>2</option>
+						<c:forEach items="${categories}" var="c">
+						<form:option value="${c.id }" label="${c.categoryName }" />
+					</c:forEach>
 
-					</select>
+					</form:select>
+					
+					<div class="form-group">
+						<label>Upload Image</label> 
+						<input type="file" name="image"	class="form-control-file" >
+					</div>
+					
 				</div>
 				
-					<div class="form-group">
-						<label for="ProductImage">Upload Image</label> <input
-							type="file" class="form-control-file"
-							id="ProductImage">
-					</div>
 				
+
+				<!-- <div class="form-group">
+					<label for="CategoryImage">Upload Image</label> <input type="file"
+						class="form-control-file" id="CategoryImage">
+				</div> -->
+
 				<button type="submit" class=" btn-green btn btn-primary">Submit</button>
-			</form>
+			</form:form>
 		</div>
 	</div>
 </div>

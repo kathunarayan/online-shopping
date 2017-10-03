@@ -1,4 +1,4 @@
-package com.niit.onlineshopping.controller;
+package com.niit.onlineshopping.controllers;
 
 
 import org.springframework.stereotype.Controller;

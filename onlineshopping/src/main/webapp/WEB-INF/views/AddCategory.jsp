@@ -22,17 +22,17 @@
 			
 				<div class="form-group">
 					<label>Category Name</label>
-					<form:input path="cat_name" class="newtext form-control"
+					<form:input path="categoryName" class="newtext form-control"
 						placeholder="Category name" />
-						<form:errors path="cat_name" cssStyle="color:red"></form:errors>
+						<form:errors path="categoryName" cssStyle="color:red"></form:errors>
 				</div>
 
-				<div class="form-group">
+				<%-- <div class="form-group">
 					<label>Category Description</label> <form:input path="description"
 					 class="newtext form-control" id="CategoryDesc"
 						placeholder="Category Description" />
 				</div>
-
+ --%>
 				<!-- <div class="form-group">
 					<label for="CategoryImage">Upload Image</label> <input type="file"
 						class="form-control-file" id="CategoryImage">

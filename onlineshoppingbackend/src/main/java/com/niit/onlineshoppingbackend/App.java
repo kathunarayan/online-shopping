@@ -14,7 +14,7 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        //ApplicationContext context= new AnnotationConfigApplicationContext(HibernateConfig.class);
+       ApplicationContext context= new AnnotationConfigApplicationContext(HibernateConfig.class);
         
     }
 }

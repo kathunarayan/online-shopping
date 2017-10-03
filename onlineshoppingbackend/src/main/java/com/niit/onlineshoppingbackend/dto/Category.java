@@ -1,72 +1,38 @@
 package com.niit.onlineshoppingbackend.dto;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-
-import org.springframework.stereotype.Component;
+import javax.persistence.OneToMany;
 
 @Entity
-@Component
 public class Category {
-
-	/*
-	 * private fields
-	 */
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-
-	private String cat_name;
-
-	private String description;
-	/*@Column(name = "image_url")
-	private String imageUrl;*/
-	@Column(name = "is_active")
-	private boolean active = true;
-
+	private String categoryName;
+	
+	/*@OneToMany(mappedBy="category")
+	private List<Product> products;*/
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	
-
-	public String getCat_name() {
-		return cat_name;
+	public String getCategoryName() {
+		return categoryName;
 	}
-
-	public void setCat_name(String cat_name) {
-		this.cat_name = cat_name;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
-
-	public String getDescription() {
-		return description;
+	/*public List<Product> getProducts() {
+		return products;
 	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	/*public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}*/
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
 
 }
