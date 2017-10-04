@@ -2,12 +2,11 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>
 
 <div class="logo">
-		<img src="resources/images/logo.jpg"
-			align="middle" />
-	</div>
+	<img src="resources/images/logo.jpg" align="middle" />
+</div>
 
-	<nav class="navbar navbar-inverse" data-spy="affix"
-		data-offset-top="197">
+<nav class="navbar navbar-inverse" data-spy="affix"
+	data-offset-top="197">
 
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -20,22 +19,30 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-			<c:url value="/" var="home" ></c:url>
+				<c:url value="/" var="home"></c:url>
 				<li class="active"><a href="${home}">Home</a></li>
-				<c:url value="/admin/products/getcategoryform" var="cat" ></c:url>
+				<c:url value="/admin/products/getcategoryform" var="cat"></c:url>
 				<li><a href="${cat}">Category</a></li>
-				<c:url value="/admin/products/getproductform" var="pdt" ></c:url>
-				<li><a href="${pdt}">Products</a></li>
+				<c:url value="/all/products/getallproducts" var="pdtlist"></c:url>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Products <span
+						class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<c:url value="/all/products/getallproducts" var="pdtlist"></c:url>
+						<li><a href="${pdtlist}">View Products</a></li>
+						<c:url value="/admin/products/getproductform" var="pdt"></c:url>
+						<li><a href="${pdt}">Add Product</a></li>
+					</ul></li>
 				<li><a href="#">Kids</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-			<c:url value="/Register" var="reg" ></c:url>
+				<c:url value="/all/RegistrationForm" var="reg"></c:url>
 				<li><a href="${reg}"><span class="glyphicon glyphicon-user"></span>
 						Sign Up</a></li>
-				<li><a href="/Login"><span class="glyphicon glyphicon-log-in"></span>
-						Sign In</a></li>
-			
+				<li><a href="/Login"><span
+						class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+
 			</ul>
 		</div>
 	</div>
-	</nav>
+</nav>

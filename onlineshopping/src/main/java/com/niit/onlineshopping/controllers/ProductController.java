@@ -7,9 +7,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,8 +39,17 @@ public class ProductController {
 	}
 
 	@RequestMapping("/admin/saveproduct")
-	public String saveproduct(@ModelAttribute(name = "product") Product product) {
-		System.out.println("save pdt");
+	public String saveproduct(@Valid @ModelAttribute(name = "product") Product product, BindingResult result, Model model) {
+		if (result.hasErrors())
+			  
+			 {
+			  
+			  System.out.println("save product error"); 
+			   List<Category> categories=productservice.getallcategories(); 
+			  model.addAttribute("categories",categories); 
+			  return "AddProduct"; 
+			  
+			 }
 		productservice.saveproduct(product);
 		MultipartFile image = product.getImage();
 		Path path = Paths
@@ -72,12 +84,12 @@ public class ProductController {
 	 * e.printStackTrace(); } catch (IOException e) { e.printStackTrace(); }
 	 * return "AddProduct"; }
 	 * 
-	 */ 
+	 */
 	@RequestMapping("/all/products/getallproducts")
 	public String getAllProduct(Model model) {
 		List<Product> products = productservice.getallproducts();
 		model.addAttribute("product", products);
-		return "productlist";
+		return "ProductList";
 	}
 
 	/*
@@ -115,7 +127,7 @@ public class ProductController {
 		model.addAttribute("categories", categories);
 		Product product = productservice.getproductbyid(id);
 		model.addAttribute("product", product);
-		return "addproduct";
+		return "AddProduct";
 
 	}
 

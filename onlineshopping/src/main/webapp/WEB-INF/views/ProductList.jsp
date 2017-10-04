@@ -1,12 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+<%@include file="/WEB-INF/views/Header.jsp"%>
+<%@include file="/WEB-INF/views/Navbar.jsp"%>
+<div class="container">
+	<center><h2>List of Products</h2></center><br>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Product</td>
+				<td>ProductName</td>
+				<td>Category</td>
+				<td>Price</td>
+				<td>Information</td>
+				<td>Delete</td>
+				<td>Update</td>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach items="${product}" var="p"> 
+				<tr>
+					<c:url value="/resources/images/${p.id}.png" var="image"></c:url>
+					<td><img src="${image}" height="50" width="50" /></td>
+					<c:url value="/all/products/viewproduct/${p.id}" var="view"></c:url>
+					<td><a href="${view}">${p.productName}</a></td>
+					<td>${p.category}</td>
+					<td>${p.price}</td>
+					<td><a href="${view}"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+					<c:url value="/admin/products/deleteproduct/${p.id}" var="delete"></c:url>
+					<td><a href="${delete}"><span class="glyphicon glyphicon-trash"></span></a></td>
+					<c:url value="/admin/products/geteditproduct/${p.id}" var="edit"></c:url>
+					<td><a href="${edit}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+				</tr>
+			</c:forEach> 
+		</tbody>
+	</table>
+	</div>

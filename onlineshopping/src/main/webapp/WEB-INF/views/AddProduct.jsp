@@ -4,8 +4,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-
-<div class="container">
+<c:url value="resources/images/bg-pdt.jpg" var="bg" ></c:url>
+<div class="container-fluid"  style="background-image: url('${bg}');">
 	<div class="row">
 
 		<div class="col md-4 myform" style="margin: 20px auto;">
@@ -19,7 +19,7 @@
 			<form:form action="${action}" method="post" name="form"
 				modelAttribute="product" enctype="multipart/form-data">
 
-
+				<form:hidden path="id" />
 				<div class="form-group">
 					<label>Product Name</label>
 					<form:input path="productName" class="newtext form-control"
@@ -59,7 +59,7 @@
 					<form:select path="category" 
 						class="newtext form-control" id="ProductCategory">
 						<c:forEach items="${categories}" var="c">
-						<form:option value="${c.id }" label="${c.categoryName }" />
+						<form:option value="${c.categoryName }" label="${c.categoryName }" />
 					</c:forEach>
 
 					</form:select>
@@ -79,6 +79,7 @@
 				</div> -->
 
 				<button type="submit" class=" btn-green btn btn-primary">Submit</button>
+
 			</form:form>
 		</div>
 	</div>

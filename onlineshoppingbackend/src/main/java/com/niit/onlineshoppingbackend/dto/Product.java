@@ -4,7 +4,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -12,14 +16,14 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 private int id;
-	/*@NotEmpty(message="Product name should not be empty")
-	@Pattern(regexp="[a-zA-Z]*", message="the name can only contain letters")*/
+	@NotEmpty(message="Product name should not be empty")
+	
 private String productName;
-	/*@Min(value=50)*/
+	@Min(value=50)
 private double price;
-	/*@NotNull*/
+	@NotNull
 private int quantity;
-	/*@NotEmpty(message="Description should not be empty")*/
+	@NotEmpty(message="Description should not be empty")
 private String description;
 	@Transient
 private MultipartFile image;

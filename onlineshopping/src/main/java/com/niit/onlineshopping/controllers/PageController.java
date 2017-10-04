@@ -38,20 +38,20 @@ public class PageController {
 		//mv.addObject("userClicksRegister",true);
 		return mv;
 	}
-	@RequestMapping(value="/AddProduct")
+	/*@RequestMapping(value="/AddProduct")
 	public ModelAndView addproduct(){
 		ModelAndView mv=new ModelAndView("AddProduct");
 		mv.addObject("title", "Add Product");
 		//mv.addObject("userClicksRegister",true);
 		return mv;
-	}
-	@RequestMapping(value="/AddCategory")
+	}*/
+	/*@RequestMapping(value="/AddCategory")
 	public ModelAndView addcategory(){
 		ModelAndView mv=new ModelAndView("AddCategory");
 		mv.addObject("title", "Add Category");
 		//mv.addObject("userClicksRegister",true);
 		return mv;
-	}
+	}*/
 	/*@RequestMapping(value="/about")
 	public ModelAndView about(){
 		ModelAndView mv=new ModelAndView("page");
