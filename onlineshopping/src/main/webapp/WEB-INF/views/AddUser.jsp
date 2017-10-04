@@ -5,7 +5,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
-<div class="container">
+<c:url value="/resources/images/bg-reg.jpg" var="bg" ></c:url>
+<div class="container-fluid"  style="background-image: url('${bg}');">
 	<div class="row">
 
 		<div class="col md-4 myform" style="margin: 20px auto;">
@@ -18,7 +19,9 @@
 			<c:url value="/all/saveCustomer" var="action"></c:url>
 			<form:form action="${action}" method="post" name="form"
 				modelAttribute="customer">
-
+				<%-- <div class="alert alert-warning" role="alert">
+					<p>${duplicateuser}</p>
+				</div> --%>
 
 				<div class="form-group">
 					<label>First Name</label>
@@ -48,7 +51,7 @@
 						placeholder="Phone" />
 					<form:errors path="phone" cssStyle="color:red"></form:errors>
 				</div>
-				
+
 				<div class="form-group">
 					<label>User Name</label>
 					<form:input path="user.username" class="newtext form-control"
@@ -56,58 +59,57 @@
 					<form:errors path="user.username" cssStyle="color:red"></form:errors>
 					<p style="color: red">${duplicateuser}</p>
 				</div>
-				
+
 				<div class="form-group">
 					<label>Password</label>
 					<form:input path="user.password" class="newtext form-control"
-						placeholder="Password" id="pd1" />
+						placeholder="Password" id="pd1" type="password" />
 					<form:errors path="user.password" cssStyle="color:red"></form:errors>
 				</div>
-				
+
 				<div class="form-group">
-					<label>Confirm Password</label>
-					<input type="password" class="newtext form-control"
-						placeholder="Password" id="pd2" />					
+					<label>Confirm Password</label> <input type="password"
+						class="newtext form-control" placeholder="Password" id="pd2" />
 				</div>
-				
-				
+
+
 				<div class="form-group">
 					<label>Door no</label>
-					<form:input path="billingaddress.doorno" class="newtext form-control"
-						placeholder="Door no" id="pd1" />
-					<form:errors path="billingaddress.doorno" cssStyle="color:red"></form:errors>
+					<form:input path="billingAddress.doorno"
+						class="newtext form-control" placeholder="Door no" id="pd1" />
+					<form:errors path="billingAddress.doorno" cssStyle="color:red"></form:errors>
 				</div>
 				<div class="form-group">
 					<label>Street Name</label>
-					<form:input path="billingaddress.street" class="newtext form-control"
-						placeholder="Street Name" id="pd1" />
-					<form:errors path="billingaddress.street" cssStyle="color:red"></form:errors>
+					<form:input path="billingAddress.street"
+						class="newtext form-control" placeholder="Street Name" id="pd1" />
+					<form:errors path="billingAddress.street" cssStyle="color:red"></form:errors>
 				</div>
 				<div class="form-group">
 					<label>City</label>
-					<form:input path="billingaddress.city" class="newtext form-control"
+					<form:input path="billingAddress.city" class="newtext form-control"
 						placeholder="City" id="pd1" />
-					<form:errors path="billingaddress.city" cssStyle="color:red"></form:errors>
+					<form:errors path="billingAddress.city" cssStyle="color:red"></form:errors>
 				</div>
 				<div class="form-group">
 					<label>State</label>
-					<form:input path="billingaddress.state" class="newtext form-control"
-						placeholder="State" id="pd1" />
-					<form:errors path="billingaddress.state" cssStyle="color:red"></form:errors>
+					<form:input path="billingAddress.state"
+						class="newtext form-control" placeholder="State" id="pd1" />
+					<form:errors path="billingAddress.state" cssStyle="color:red"></form:errors>
 				</div>
 				<div class="form-group">
 					<label>Country</label>
-					<form:input path="billingaddress.country" class="newtext form-control"
-						placeholder="Country" id="pd1" />
-					<form:errors path="billingaddress.country" cssStyle="color:red"></form:errors>
+					<form:input path="billingAddress.country"
+						class="newtext form-control" placeholder="Country" id="pd1" />
+					<form:errors path="billingAddress.country" cssStyle="color:red"></form:errors>
 				</div>
 				<div class="form-group">
 					<label>Zipcode</label>
-					<form:input path="billingaddress.zipcode" class="newtext form-control"
-						placeholder="Zipcode" id="pd1" />
-					<form:errors path="billingaddress.zipcode" cssStyle="color:red"></form:errors>
+					<form:input path="billingAddress.zipcode"
+						class="newtext form-control" placeholder="Zipcode" id="pd1" />
+					<form:errors path="billingAddress.zipcode" cssStyle="color:red"></form:errors>
 				</div>
-				
+
 
 				<%-- <div class="form-group">
 					<label>Category Description</label> <form:input path="description"
@@ -120,7 +122,7 @@
 						class="form-control-file" id="CategoryImage">
 				</div> -->
 
-				<button type="submit" class=" btn-green btn btn-primary">Submit</button>
+				<button type="submit" class=" btn-green btn btn-primary" onclick="return Validate()">Submit</button>
 			</form:form>
 		</div>
 	</div>

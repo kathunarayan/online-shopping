@@ -3,10 +3,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,21 +28,21 @@ private int quantity;
 private String description;
 	@Transient
 private MultipartFile image;
-/*@ManyToOne
-@JoinColumn(name="cid")*/
-private String category;
+@ManyToOne
+@JoinColumn(name="cid")
+private Category category;
 public MultipartFile getImage() {
 	return image;
 }
 public void setImage(MultipartFile image) {
 	this.image = image;
 }
-/*public Category getCategory() {
+public Category getCategory() {
 	return category;
 }
 public void setCategory(Category category) {
 	this.category = category;
-}*/
+}
 public int getId() {
 	return id;
 }
@@ -72,11 +73,4 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-public String getCategory() {
-	return category;
-}
-public void setCategory(String category) {
-	this.category = category;
-}
-
 }

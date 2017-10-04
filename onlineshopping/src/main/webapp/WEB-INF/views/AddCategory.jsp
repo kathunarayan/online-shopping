@@ -27,12 +27,12 @@
 						<form:errors path="categoryName" cssStyle="color:red"></form:errors>
 				</div>
 
-				<%-- <div class="form-group">
-					<label>Category Description</label> <form:input path="description"
+				<div class="form-group">
+					<label>Category Description</label> <form:input path="categoryDesc"
 					 class="newtext form-control" id="CategoryDesc"
 						placeholder="Category Description" />
 				</div>
- --%>
+
 				<!-- <div class="form-group">
 					<label for="CategoryImage">Upload Image</label> <input type="file"
 						class="form-control-file" id="CategoryImage">

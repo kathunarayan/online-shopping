@@ -4,7 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<c:url value="resources/images/bg-pdt.jpg" var="bg" ></c:url>
+<c:url value="/resources/images/bg-pdt.jpg" var="bg" ></c:url>
 <div class="container-fluid"  style="background-image: url('${bg}');">
 	<div class="row">
 
@@ -56,10 +56,10 @@
 				</div> --%>
 				<div class="form-group">
 					<label>Select Category</label> 
-					<form:select path="category" 
+					<form:select path="category.id" 
 						class="newtext form-control" id="ProductCategory">
 						<c:forEach items="${categories}" var="c">
-						<form:option value="${c.categoryName }" label="${c.categoryName }" />
+						<form:option value="${c.id}" label="${c.categoryName }" />
 					</c:forEach>
 
 					</form:select>

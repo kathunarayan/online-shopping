@@ -2,7 +2,8 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags/form"%>
 
 <div class="logo">
-	<img src="resources/images/logo.jpg" align="middle" />
+<c:url value="/resources/images/logo.jpg" var="logo" />
+	<img src="${logo}" align="middle" />
 </div>
 
 <nav class="navbar navbar-inverse" data-spy="affix"

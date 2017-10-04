@@ -28,7 +28,7 @@ public class CustomerController {
 	@RequestMapping("/all/saveCustomer")
 	public String saveCustomer(@Valid @ModelAttribute Customer customer,BindingResult result, Model model){
 		if(result.hasErrors())
-			return "register";
+			return "AddUser";
 		User user=customerservice.validateUsername(customer.getUser().getUsername());
 		if(user!=null)
 		{

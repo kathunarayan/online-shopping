@@ -151,7 +151,7 @@ public class ProductController {
 	@RequestMapping("/admin/savecategory")
 	public String savecategory(@ModelAttribute(name = "category") Category category) {
 		productservice.savecategory(category);
-		return "AddCategory";
+		return "redirect:/admin/products/getcategoryform";
 	}
 
 }

@@ -26,12 +26,14 @@
 <style>
 .myform_head {
 	background-color: #9d9d9d;
-	color: #fff; border-color : #310b2b;
+	color: #fff;
+	border-color: #310b2b;
 	padding: 1rem;
 	border-color: #310b2b;
 }
 
 .myform {
+	background-color: #fff;
 	width: 600px;
 	important margin: 20px auto;
 	padding-bottom: 10px;
@@ -101,7 +103,6 @@ form {
 }
 
 #footer {
-	margin-top: 50px;
 	padding-top: 50px;
 	padding-bottom: 50px;
 	color: #fff;
@@ -139,7 +140,19 @@ body {
 
 
 <script>
+	/* for carousel */
 	$('.carousel').carousel();
+
+	/* for password match */
+	function Validate() {
+		var str1 = document.getElementById("pd1").value;
+		var str2 = document.getElementById("pd2").value;
+		if (str1 != str2) {
+			alert("Passwords donot match");
+			return false;
+		}
+		return true;
+	}
 </script>
 </head>
 <body>

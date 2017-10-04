@@ -13,14 +13,20 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String categoryName;
-	
-	/*@OneToMany(mappedBy="category")
-	private List<Product> products;*/
+	private String categoryDesc;
+	@OneToMany(mappedBy="category")
+	private List<Product> products;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getCategoryDesc() {
+		return categoryDesc;
+	}
+	public void setCategoryDesc(String categoryDesc) {
+		this.categoryDesc = categoryDesc;
 	}
 	public String getCategoryName() {
 		return categoryName;
@@ -28,11 +34,11 @@ public class Category {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-	/*public List<Product> getProducts() {
+	public List<Product> getProducts() {
 		return products;
 	}
 	public void setProducts(List<Product> products) {
 		this.products = products;
-	}*/
+	}
 
 }
