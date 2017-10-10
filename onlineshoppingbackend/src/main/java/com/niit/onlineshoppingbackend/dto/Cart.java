@@ -3,6 +3,7 @@ package com.niit.onlineshoppingbackend.dto;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,11 +22,11 @@ public class Cart {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private double gtotal;
-	@OneToOne(mappedBy = "cart")
+	@OneToOne
 	@JoinColumn(name = "cid")
 	private Customer customer;
-	//@OneToMany
-	//private List<CartItem> cartitems;
+	@OneToMany(mappedBy="cart",fetch=FetchType.EAGER)
+	private List<CartItem> cartitems;
 	public int getId() {
 		return id;
 	}
@@ -44,11 +45,11 @@ public class Cart {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	/*public List<CartItem> getCartitems() {
+	public List<CartItem> getCartitems() {
 		return cartitems;
 	}
 	public void setCartitems(List<CartItem> cartitems) {
 		this.cartitems = cartitems;
-	}*/
+	}
 	
 }

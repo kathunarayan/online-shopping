@@ -65,26 +65,7 @@ public class ProductController {
 		return "redirect:/admin/products/getproductform";
 	}
 
-	/*
-	 * public String saveproduct(@Valid @ModelAttribute Product product,
-	 * BindingResult result, Model model) { if (result.hasErrors())
-	 * 
-	 * {
-	 * 
-	 * System.out.println("save product error"); // List<Category>
-	 * categories=productservice.getallcategories(); //
-	 * model.addAttribute("categories",categories); // return "AddProduct"; }
-	 * System.out.println("save product");
-	 * System.out.println(product.getProductName());
-	 * productservice.saveproduct(product); MultipartFile image =
-	 * product.getImage(); Path path = Paths .get(
-	 * "D:\\NIIT\\Project\\shopping\\online-shopping\\onlineshopping\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
-	 * + product.getId() + ".png"); try { image.transferTo(new
-	 * File(path.toString())); } catch (IllegalStateException e) {
-	 * e.printStackTrace(); } catch (IOException e) { e.printStackTrace(); }
-	 * return "AddProduct"; }
-	 * 
-	 */
+	
 	@RequestMapping("/all/products/getallproducts")
 	public String getAllProduct(Model model) {
 		List<Product> products = productservice.getallproducts();
@@ -92,19 +73,13 @@ public class ProductController {
 		return "ProductList";
 	}
 
-	/*
-	 * @RequestMapping("/all/products/viewproduct/{id}")
-	 * 
-	 * public String getproductbyid(@PathVariable int id,Model model) throws
-	 * ProductNotFoundException { Product
-	 * product=productservice.getproductbyid(id);
-	 * 
-	 * if(product==null) throw new ProductNotFoundException();
-	 * 
-	 * model.addAttribute("product",product); return "viewproduct";
-	 * 
-	 * }
-	 */
+	
+	 @RequestMapping("/all/products/viewproduct/{id}")
+	  public String getproductbyid(@PathVariable int id,Model model) { 
+		 Product product=productservice.getproductbyid(id);
+		 model.addAttribute("product",product); return "ProductDesc";
+	  }
+	 
 	@RequestMapping("/admin/products/deleteproduct/{id}")
 	public String deleteproductid(@PathVariable int id) {
 		productservice.deleteproduct(id);

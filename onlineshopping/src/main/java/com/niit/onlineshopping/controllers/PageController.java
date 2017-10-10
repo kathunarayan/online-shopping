@@ -2,8 +2,9 @@ package com.niit.onlineshopping.controllers;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -31,12 +32,18 @@ public class PageController {
 		//mv.addObject("userClicksRegister",true);
 		return mv;
 	}
-	@RequestMapping(value="/Login")
-	public ModelAndView login(){
-		ModelAndView mv=new ModelAndView("Login");
-		mv.addObject("title", "Login");
-		//mv.addObject("userClicksRegister",true);
-		return mv;
+	@RequestMapping("/Login")
+	public String login(@RequestParam(value = "error", required = false) String error, 
+			@RequestParam(value = "logout", required = false) String logout, Model model)
+	{
+		if(error != null) {
+			model.addAttribute("error", "Username or Password Incorrect");
+			}
+		
+		if(logout != null) {
+			model.addAttribute("logout", "Logged out Successfully");
+			}
+		return "Login";
 	}
 	/*@RequestMapping(value="/AddProduct")
 	public ModelAndView addproduct(){

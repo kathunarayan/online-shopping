@@ -5,10 +5,10 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
-<div class="container">
+<div class="container" style="width:500px;margin:auto">
 	<div class="row">
 
-		<div class="col md-4 myform" style="margin: 20px auto;">
+		<div class="col md-4 myform" style="width:500px;margin: 20px auto;">
 			<div class="myform_head">
 
 				<h3>Sign Up Here</h3>

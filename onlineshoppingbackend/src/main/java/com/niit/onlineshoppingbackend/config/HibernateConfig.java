@@ -16,8 +16,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.onlineshoppingbackend.dto.Authorities;
 import com.niit.onlineshoppingbackend.dto.BillingAddress;
 import com.niit.onlineshoppingbackend.dto.Cart;
+import com.niit.onlineshoppingbackend.dto.CartItem;
 import com.niit.onlineshoppingbackend.dto.Category;
 import com.niit.onlineshoppingbackend.dto.Customer;
+import com.niit.onlineshoppingbackend.dto.CustomerOrder;
 import com.niit.onlineshoppingbackend.dto.Product;
 import com.niit.onlineshoppingbackend.dto.ShippingAddress;
 import com.niit.onlineshoppingbackend.dto.User;
@@ -61,12 +63,12 @@ public class HibernateConfig {
 		sessionBuilder.addAnnotatedClass(Product.class);
 		//sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Cart.class);
-		//sessionBuilder.addAnnotatedClass(CartItem.class);
+		sessionBuilder.addAnnotatedClass(CartItem.class);
 		sessionBuilder.addAnnotatedClass(Customer.class);
 		sessionBuilder.addAnnotatedClass(BillingAddress.class);
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Authorities.class);
-		//sessionBuilder.addAnnotatedClass(CustomerOrder.class);
+		sessionBuilder.addAnnotatedClass(CustomerOrder.class);
 		sessionBuilder.addAnnotatedClass(ShippingAddress.class);
 		return sessionBuilder.buildSessionFactory();
 	}
